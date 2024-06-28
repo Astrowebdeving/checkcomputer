@@ -19,11 +19,12 @@ if worker == 0:
 os.system(f"echo Outputting Disk Space Usage")
 os.system(f"./newshelltest.sh")
 os.system(f"echo Outputting CPU processes and usage")
-sleep(0.1)
 os.system(f"./secondshelltest.sh")
 os.system(f"echo Outputting memory usage processes")
 os.system(f"./memoryshell.sh")
 #subprocess.run(["./", "newshelltest.sh"])
+
+print('My rank is', worker, ". The size is", size, ". The IP is", ip)
  
 os.system("echo Total CPU Usage is:")
 #os.system("mpstat")
@@ -38,5 +39,5 @@ os.system("free -h | awk '{print $3}' | tr -d 'fre, ' | sed 's/ //g' | awk 'NR<3
 os.system("echo Total Disk Space Usage is:")
 os.system("df -m | awk '{sum+=$5;} END{print sum;}'")
 
-print('My rank is', worker, ". The size is", size, ". The IP is", ip)
+
 
